@@ -85,7 +85,7 @@ class Obtener_resumen():
 
         NaN = np.nan
         dataframe = pd.DataFrame(almacen)
-        dataframe = pd.DataFrame(almacen, columns = ["Edad", "Sexo", "Presion Arterial", "Coleserol", "Proporcion Na\K", "Droga"])
+        dataframe = pd.DataFrame(almacen, columns = ["Edad", "Sexo", "Presion Arterial", "Colesterol", "Proporcion Na\K", "Droga"])
 
         print(dataframe)
         # obtiene edad promedio 
@@ -93,8 +93,40 @@ class Obtener_resumen():
         # Imprimimos la media de la columna 'Edad'
         print(edad_proemdio)
 
-        print(dataframe["Sexo"].count())
+        #obtiene cantidad de pacientes de sexo femenino y masculino, respectivamente
+        sexo_F = len(dataframe[dataframe["Sexo"] == 'F'])
+        sexo_M = len(dataframe[dataframe["Sexo"] == 'M'])
+        print(sexo_F)
+        print(sexo_M)
 
+        colesterol_elevado = len(dataframe[dataframe["Colesterol"] == 'HIGH'])
+        print(colesterol_elevado)
+
+        #obtiene cantidad de pacientes con BP Alto y BP Baja, respectivamente
+        BP_HIGH = len(dataframe[dataframe["Presion Arterial"] == 'HIGH'])
+        BP_LOW = len(dataframe[dataframe["Presion Arterial"] == 'LOW'])
+        #Imprimimos cantidad de pacientes con BP Alto
+        print(BP_HIGH)
+        print(BP_LOW)
+
+        nombre_drogas = ["drugA", "drugB", "drugC", "drugX", "DrugY", ]
+        Droga = ['DrogA', 'DrogB', 'DrogC', 'DrogX', 'DrogY']
+
+        for indice in range (0, len(nombre_drogas)):
+            Droga[indice] = len(dataframe[dataframe["Droga"] == nombre_drogas[indice]])
+        
+        print(Droga)
+
+        promedio_edad = builder.get_object("Promedio edad  pacientes")
+        promedio_edad.set_label(f"Promedio de edad en pacientes: {edad_proemdio} anios.")
+        sexo_pacientes = builder.get_object("cantidad pacientes masculinos/femeninos")
+        sexo_pacientes.set_label(f"{sexo_F} pacientes de sexo femenino. {sexo_M} pacientes de sexo masculino.")
+        colesterol_alto = builder.get_object("cantidad pacientes colesterol alt")
+        colesterol_alto.set_label(f"{colesterol_elevado} pacientes con indice de colesterol elevado.")
+        presion_Alta_Baja = builder.get_object("pacientes presion alta/baja")
+        presion_Alta_Baja.set_label(f"{BP_HIGH} pacientes con presion alta. {BP_LOW} pacientes con presion baja.")
+        cantidad_tipo_droga = builder.get_object("cantidad tipo droga")
+        cantidad_tipo_droga.set_label(f"Droga Y es la de mayor consumo, suministrada a {Droga[4]} pacientes.")
 
 
 
@@ -119,7 +151,7 @@ class Dialogo_muestra_data():
         self.modelo = Gtk.ListStore(str, str, str, str, str, str)
         self.tree.set_model(model=self.modelo)
 
-        self.nombre_columnas = ("Edad", "Sexo", "Presion Arterial", "Coleserol", "Proporcion Na\K", "Droga" )
+        self.nombre_columnas = ("Edad", "Sexo", "Presion Arterial", "Coleserol", "Proporcion Na\K", "Droga")
         cell = Gtk.CellRendererText()
         for item in range(len(self.nombre_columnas)):
             #item = 2
