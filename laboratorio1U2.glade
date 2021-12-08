@@ -141,7 +141,7 @@
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <child>
-              <object class="GtkLabel" id="cantidad pacientes presion  ALTA">
+              <object class="GtkLabel" id="cantidad pacientes masculinos/femeninos">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">label</property>
@@ -152,7 +152,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkLabel" id="cantidad pacientes presion  BAJA">
+              <object class="GtkLabel" id="cantidad pacientes colesterol alt">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">label</property>
@@ -163,7 +163,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkLabel" id="Proporcion de sodio a potasio ">
+              <object class="GtkLabel" id="cantidad tipo droga">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">label</property>
@@ -174,7 +174,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkLabel" id="cantidad pacientes colesterol alto">
+              <object class="GtkLabel" id="pacientes presion alta/baja">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">label</property>
@@ -194,9 +194,6 @@
                 <property name="left_attach">0</property>
                 <property name="top_attach">0</property>
               </packing>
-            </child>
-            <child>
-              <placeholder/>
             </child>
           </object>
           <packing>
